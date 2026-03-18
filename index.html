@@ -4,115 +4,10 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>OpenClaw | AI Agent Orchestration Consulting</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#ff4d4d", // Coral/Red from openclaw.ai
-                        "secondary": "#e67f0d", // Orange
-                        "accent": "#ff0f80", // Deep Pink
-                        "deep-orange": "#fe4e00",
-                        "vivid-red": "#e9190f",
-                        "background-dark": "#050810",
-                        "slate-custom": "#94a3b8",
-                    },
-                    fontFamily: {
-                        "display": ["Inter", "sans-serif"]
-                    },
-                    borderRadius: {
-                        "DEFAULT": "0.75rem",
-                        "lg": "1rem",
-                        "xl": "1.5rem",
-                        "full": "9999px"
-                    },
-                    animation: {
-                        'gradient-shift': 'gradient-shift 15s ease infinite',
-                        'float': 'float 6s ease-in-out infinite',
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'star-twinkle': 'twinkle 3s ease-in-out infinite',
-                    }
-                },
-            },
-        }
-    </script>
-<style>
-        .glass {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.08)
-        }
-        @keyframes gradient-shift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0px); }
-        }
-        @keyframes twinkle {
-            0%, 100% { opacity: 0.2; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.2); }
-        }
-        .animated-bg {
-            background: radial-gradient(circle at top right, #1a0b1a, #050810 40%),
-                        radial-gradient(circle at bottom left, #0a1128, #050810 40%);
-            background-color: #050810;
-        }
-        .starfield {
-            background-image: 
-                radial-gradient(1px 1px at 20px 30px, #fff, rgba(0,0,0,0)),
-                radial-gradient(1px 1px at 40px 70px, #fff, rgba(0,0,0,0)),
-                radial-gradient(1px 1px at 50px 160px, #fff, rgba(0,0,0,0)),
-                radial-gradient(1.5px 1.5px at 80px 120px, #fff, rgba(0,0,0,0)),
-                radial-gradient(1px 1px at 110px 40px, #fff, rgba(0,0,0,0)),
-                radial-gradient(1.5px 1.5px at 150px 180px, #fff, rgba(0,0,0,0));
-            background-repeat: repeat;
-            background-size: 200px 200px;
-            opacity: 0.15;
-        }
-        .orb {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(100px);
-            z-index: 0;
-            pointer-events: none;
-            opacity: 0.15;
-        }
-        .glow-text {
-            text-shadow: 0 0 30px rgba(255, 77, 77, 0.3)
-        }
-        .card-hover:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.05);
-            border-color: rgba(255, 77, 77, 0.3);
-            box-shadow: 0 10px 30px -10px rgba(255, 77, 77, 0.2);
-        }
-        .bg-pattern-circuit {
-            background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg stroke='%23ff4d4d' stroke-width='0.5' stroke-opacity='0.1'%3E%3Cpath d='M50 0v20h20M0 50h20v20M80 30H60V10M30 80V60H10'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-        }
-        .bg-pattern-dots {
-            background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='2' cy='2' r='0.6' fill='%23ff4d4d' fill-opacity='0.15'/%3E%3C/svg%3E");
-        }
-        .bg-pattern-network {
-            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 10 L90 90 M90 10 L10 90' stroke='%23ff4d4d' stroke-width='0.2' stroke-opacity='0.08'/%3E%3Ccircle cx='10' cy='10' r='1' fill='%23ff4d4d' fill-opacity='0.1'/%3E%3Ccircle cx='90' cy='90' r='1' fill='%23ff4d4d' fill-opacity='0.1'/%3E%3Ccircle cx='50' cy='50' r='1.5' fill='%23ff4d4d' fill-opacity='0.1'/%3E%3C/svg%3E");
-        }
-        #particles-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            pointer-events: none;
-        }
-    </style>
+<link rel="stylesheet" href="css/tailwind.css"/>
+<link rel="stylesheet" href="css/custom.css"/>
 </head>
 <body class="bg-background-dark text-slate-100 font-display selection:bg-primary/30 overflow-x-hidden">
 <canvas id="particles-canvas"></canvas>
@@ -122,10 +17,10 @@
 <!-- Navigation -->
 <nav class="relative z-50 max-w-7xl mx-auto px-6 py-8 flex items-center justify-between">
 <div class="flex items-center gap-3">
-<div class="w-10 h-10 bg-primary flex items-center justify-center rounded-lg shadow-[0_0_25px_rgba(255,77,77,0.4)]">
-<span class="material-symbols-outlined text-white font-bold">bolt</span>
+<div class="w-10 h-10 bg-black/80 flex items-center justify-center rounded-lg shadow-[0_0_25px_rgba(255,77,77,0.4)]">
+<span class="text-xl" aria-hidden="true">🦞</span>
 </div>
-<span class="text-2xl font-black tracking-tighter uppercase text-white">OpenClaw</span>
+<span class="text-2xl font-black tracking-tighter text-white">openclaw.at0mic</span>
 </div>
 <div class="hidden md:flex items-center gap-10 text-sm font-medium text-slate-custom">
 <a class="hover:text-primary transition-colors" href="#capabilities">Capabilities</a>
@@ -157,16 +52,16 @@
                     Your own team of specialized <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-accent">AI agents.</span>
 </h1>
 <div class="space-y-4 max-w-lg">
-<p class="text-xl md:text-2xl font-semibold text-slate-100">Always on. Actually useful.</p>
+<p class="text-2xl md:text-3xl font-semibold text-slate-100">Always on. Actually useful.</p>
 <p class="text-lg text-slate-custom leading-relaxed">Supercharge your business with AI that understands your context, manages your tasks, and integrates with your existing workflow.</p>
 </div>
 <div class="flex flex-col sm:flex-row gap-4 pt-4">
-<button class="bg-primary text-white px-8 py-4 rounded-xl font-bold text-lg hover:shadow-[0_0_50px_rgba(255,77,77,0.5)] hover:scale-[1.02] active:scale-95 transition-all">
+<a class="bg-primary text-white px-8 py-4 rounded-xl font-bold text-lg hover:shadow-[0_0_50px_rgba(255,77,77,0.5)] hover:scale-[1.02] active:scale-95 transition-all inline-flex items-center justify-center" href="mailto:openclaw@at0mic.com">
                         Book a Consultation
-                    </button>
-<button class="glass px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/10 transition-all text-white border-white/20">
+                    </a>
+<a class="glass px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/10 transition-all text-white border border-white/20 inline-flex items-center justify-center" href="#capabilities">
                         View Capabilities
-                    </button>
+                    </a>
 </div>
 </div>
 <div class="relative group">
@@ -223,7 +118,7 @@
 <div class="absolute inset-0 bg-pattern-network opacity-10 pointer-events-none"></div>
 <div class="orb w-[600px] h-[600px] bg-secondary/10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
 <div class="relative z-10 max-w-4xl mx-auto px-6 text-center space-y-12">
-<h2 class="text-4xl md:text-6xl font-black italic tracking-tight glow-text text-white">Something has changed.</h2>
+<h2 class="text-4xl md:text-6xl font-black italic tracking-tight glow-text text-white">Evolve at the speed of the market.</h2>
 <div class="space-y-8 text-xl md:text-2xl leading-relaxed text-slate-custom font-light">
 <p>For decades, software was static. You learned the tool, you did the work. Then came AI, which felt like magic—but magic that lived in a box.</p>
 <p class="text-slate-100 font-normal">Now, the box is open. AI agents aren't just chat windows; they are workers that integrate with real tools, remember your context over weeks, and execute complex sequences across your business stack.</p>
@@ -461,7 +356,7 @@
 <div class="grid md:grid-cols-2 gap-16 items-center">
 <div class="relative">
 <div class="absolute -inset-4 bg-primary/20 blur-2xl rounded-2xl animate-pulse"></div>
-<img alt="Daniel Serrano" class="relative rounded-2xl grayscale hover:grayscale-0 transition-all duration-700 w-full object-cover aspect-square shadow-2xl border border-white/10" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiXhYoMQvNcFaZtuXcR1u4zJgwj_ioCfAMndIyk3obCBTpCJk8iPNj4VdwnkP798mvKALuV32G6JsMOOjz4QvyYRye_h-mqdGSBDWT9EdLjFFUKlw6yhsNuD_Bge7U6X1Mp3z3ponXgTFyhH54UVPjuh0bOGEFs82WmAM8usrvm6x9PkW618gcoKtTKOU78gQJVRN1fzisp88pvHnhgmdRVAIQIvLtjBPT57zrfS2QHoAJ4VDtXnv9al7zcm3BmdDQeUVp4AoO1z00"/>
+<img alt="Daniel Serrano" class="relative rounded-2xl grayscale hover:grayscale-0 transition-all duration-700 w-full object-cover aspect-square shadow-2xl border border-white/10" src="img/daniel-serrano.jpg"/>
 </div>
 <div class="space-y-8">
 <div class="space-y-2">
@@ -577,10 +472,10 @@
 <span class="material-symbols-outlined">mail</span>
                     openclaw@at0mic.com
                 </a>
-<a class="flex items-center gap-3 text-2xl font-bold text-slate-custom hover:text-white hover:scale-110 transition-all duration-300" href="https://www.linkedin.com/in/danielserrano/" target="_blank" rel="noopener">
-<svg class="w-6 h-6" fill="currentColor" viewbox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
-                    LinkedIn
-                </a>
+<span class="flex items-center gap-3 text-2xl font-bold text-slate-custom/70">
+<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
+                    LinkedIn profile refresh in progress
+                </span>
 </div>
 <div class="pt-20 text-slate-custom/30 text-xs tracking-[0.2em] uppercase font-bold">
                 © 2026 OpenClaw Orchestration. All rights reserved.
@@ -588,117 +483,5 @@
 </div>
 </footer>
 </div>
-<script>
-    const canvas = document.getElementById('particles-canvas');
-    const ctx = canvas.getContext('2d');
-    let particles = [];
-    const particleCount = 60;
-    const mouse = { x: null, y: null, radius: 150 };
-
-    window.addEventListener('mousemove', function(event) {
-        mouse.x = event.x;
-        mouse.y = event.y;
-    });
-
-    window.addEventListener('resize', function() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        init();
-    });
-
-    class Particle {
-        constructor(x, y, size, color, velocityX, velocityY) {
-            this.x = x;
-            this.y = y;
-            this.size = size;
-            this.color = color;
-            this.velocityX = velocityX;
-            this.velocityY = velocityY;
-            this.baseX = x;
-            this.baseY = y;
-            this.density = (Math.random() * 30) + 1;
-        }
-
-        draw() {
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
-            ctx.fillStyle = this.color;
-            ctx.fill();
-        }
-
-        update() {
-            // Movement logic
-            this.x += this.velocityX;
-            this.y += this.velocityY;
-
-            // Screen wrap around or bounce
-            if (this.x > canvas.width || this.x < 0) this.velocityX = -this.velocityX;
-            if (this.y > canvas.height || this.y < 0) this.velocityY = -this.velocityY;
-
-            // Mouse interactivity
-            let dx = mouse.x - this.x;
-            let dy = mouse.y - this.y;
-            let distance = Math.sqrt(dx * dx + dy * dy);
-            let forceDirectionX = dx / distance;
-            let forceDirectionY = dy / distance;
-            let maxDistance = mouse.radius;
-            let force = (maxDistance - distance) / maxDistance;
-            let directionX = forceDirectionX * force * this.density;
-            let directionY = forceDirectionY * force * this.density;
-
-            if (distance < mouse.radius) {
-                this.x -= directionX;
-                this.y -= directionY;
-            } else {
-                // Gentle pull back to "home" path if not near mouse
-                // but we let them drift naturally for more joy
-            }
-            this.draw();
-        }
-    }
-
-    function init() {
-        particles = [];
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        for (let i = 0; i < particleCount; i++) {
-            let size = Math.random() * 2 + 0.5;
-            let x = Math.random() * canvas.width;
-            let y = Math.random() * canvas.height;
-            let velocityX = (Math.random() - 0.5) * 0.5;
-            let velocityY = (Math.random() - 0.5) * 0.5;
-            let color = 'rgba(255, 77, 77, 0.4)'; // Primary color with alpha
-            particles.push(new Particle(x, y, size, color, velocityX, velocityY));
-        }
-    }
-
-    function animate() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        for (let i = 0; i < particles.length; i++) {
-            particles[i].update();
-        }
-        
-        // Connect particles with lines if close
-        for (let a = 0; a < particles.length; a++) {
-            for (let b = a; b < particles.length; b++) {
-                let dx = particles[a].x - particles[b].x;
-                let dy = particles[a].y - particles[b].y;
-                let distance = Math.sqrt(dx * dx + dy * dy);
-
-                if (distance < 150) {
-                    ctx.strokeStyle = `rgba(255, 77, 77, ${0.1 * (1 - distance/150)})`;
-                    ctx.lineWidth = 1;
-                    ctx.beginPath();
-                    ctx.moveTo(particles[a].x, particles[a].y);
-                    ctx.lineTo(particles[b].x, particles[b].y);
-                    ctx.stroke();
-                }
-            }
-        }
-        requestAnimationFrame(animate);
-    }
-
-    init();
-    animate();
-</script>
+<script src="js/particles.js"></script>
 </body></html>
