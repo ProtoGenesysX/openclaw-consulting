@@ -96,43 +96,37 @@
             .starfield {
                 opacity: 0.12;
             }
-            /* Mobile: single background with intersection-observer-driven CSS transitions */
+            /* Mobile: tiled background with intersection-observer-driven shifts */
             .animated-bg::before {
                 content: '';
                 position: fixed;
-                inset: -10%;
+                inset: 0;
                 z-index: 1;
                 pointer-events: none;
                 background-image: url('/img/mobile-bg-v1.png');
-                background-size: 120%;
-                background-position: center 20%;
-                background-repeat: no-repeat;
-                opacity: 0.45;
-                transition: background-position 1.5s ease-out, opacity 1.5s ease-out, transform 1.5s ease-out;
-                transform: scale(1);
+                background-size: 400px 700px;
+                background-position: 0px 0px;
+                background-repeat: repeat;
+                opacity: 0.4;
+                transition: background-position 2s ease-out, opacity 1.5s ease-out;
             }
-            /* Each section depth shifts the background */
             .animated-bg.bg-depth-1::before {
-                background-position: center 20%;
-                opacity: 0.45;
+                background-position: 0px 0px;
+                opacity: 0.4;
             }
             .animated-bg.bg-depth-2::before {
-                background-position: center 35%;
-                opacity: 0.4;
-                transform: scale(1.02);
+                background-position: -30px -50px;
+                opacity: 0.35;
             }
             .animated-bg.bg-depth-3::before {
-                background-position: center 50%;
-                opacity: 0.35;
-                transform: scale(1.04);
+                background-position: -60px -100px;
+                opacity: 0.3;
             }
             .animated-bg.bg-depth-4::before {
-                background-position: center 65%;
-                opacity: 0.4;
-                transform: scale(1.06);
+                background-position: -90px -150px;
+                opacity: 0.35;
             }
             .animated-bg.bg-depth-5::before {
-                background-position: center 80%;
-                opacity: 0.45;
-                transform: scale(1.08);
+                background-position: -120px -200px;
+                opacity: 0.4;
             }
