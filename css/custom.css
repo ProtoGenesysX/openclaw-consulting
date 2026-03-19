@@ -96,25 +96,20 @@
             .starfield {
                 opacity: 0.12;
             }
-            /* Mobile parallax: nebula (slow) + stars (faster) */
-            .animated-bg {
-                perspective: 8px;
-                perspective-origin: center top;
-                overflow-y: auto;
-                overflow-x: hidden;
-            }
+            /* Mobile: two-layer background with JS-driven parallax */
             .animated-bg::before {
                 content: '';
                 position: fixed;
-                inset: -20%;
+                inset: 0;
                 z-index: 1;
                 pointer-events: none;
                 background-image: url('/img/mobile-bg-nebula.png');
                 background-size: cover;
                 background-position: center;
                 background-repeat: no-repeat;
-                opacity: 0.35;
-                transform: translateZ(-4px) scale(1.5);
+                opacity: 0.3;
+                will-change: transform;
+                transform: translateY(calc(var(--scroll, 0) * -0.05px));
             }
             .animated-bg::after {
                 content: '';
@@ -127,5 +122,6 @@
                 background-position: center;
                 background-repeat: no-repeat;
                 opacity: 0.5;
-                transform: translateZ(-1px) scale(1.125);
+                will-change: transform;
+                transform: translateY(calc(var(--scroll, 0) * -0.15px));
             }
