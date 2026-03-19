@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "build:css": "npx tailwindcss -i src/input.css -o css/tailwind.css --minify",
+    "build": "npm run build:css && mkdir -p dist && cp index.html CNAME dist/ && cp -r css js img dist/",
     "dev": "npx tailwindcss -i src/input.css -o css/tailwind.css --watch"
   },
   "devDependencies": {
