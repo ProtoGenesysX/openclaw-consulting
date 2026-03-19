@@ -1,17 +1,3 @@
-// Mobile: lightweight scroll-driven parallax for background layers
-if (window.matchMedia('(max-width: 767px)').matches) {
-    let ticking = false;
-    window.addEventListener('scroll', function() {
-        if (!ticking) {
-            requestAnimationFrame(function() {
-                document.documentElement.style.setProperty('--scroll', window.scrollY);
-                ticking = false;
-            });
-            ticking = true;
-        }
-    }, { passive: true });
-}
-
 // Desktop: full particle animation
 if (!window.matchMedia('(max-width: 767px)').matches) {
     const canvas = document.getElementById('particles-canvas');
