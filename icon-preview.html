@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body { background: #050810; display: flex; gap: 40px; justify-content: center; align-items: center; min-height: 100vh; font-family: Inter, sans-serif; color: white; flex-wrap: wrap; padding: 40px; }
+.option { text-align: center; }
+.option p { margin-top: 12px; font-size: 13px; opacity: 0.5; }
+.box { width: 80px; height: 80px; background: #ff4d4d; display: flex; align-items: center; justify-content: center; border-radius: 12px; box-shadow: 0 0 40px rgba(255,77,77,0.5); }
+.box svg { width: 50px; height: 50px; }
+.row { display: flex; gap: 16px; align-items: center; margin-top: 20px; }
+.row .box { width: 40px; height: 40px; border-radius: 8px; box-shadow: 0 0 25px rgba(255,77,77,0.4); }
+.row .box svg { width: 24px; height: 24px; }
+.row span { font-size: 22px; font-weight: 900; letter-spacing: -0.05em; }
+</style>
+</head>
+<body>
+
+<div class="option">
+<div class="box">
+<!-- V1: Stylized lobster, robot antennae with sensor dots -->
+<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+<!-- Body segments -->
+<path d="M12 10c-2.5 0-4 1.5-4 3.5c0 2 1.5 3.5 4 3.5s4-1.5 4-3.5c0-2-1.5-3.5-4-3.5z"/>
+<path d="M10 12.5h4"/>
+<path d="M10 14h4"/>
+<!-- Head -->
+<ellipse cx="12" cy="8.5" rx="2.5" ry="2"/>
+<!-- Robot antennae with sensor dots -->
+<path d="M10 7l-2.5-4"/>
+<circle cx="7.5" cy="3" r="0.8" fill="white" stroke="none"/>
+<path d="M14 7l2.5-4"/>
+<circle cx="16.5" cy="3" r="0.8" fill="white" stroke="none"/>
+<!-- Claws -->
+<path d="M9.5 9.5C7 9 5 9.5 4.5 11c-.3 1 .5 2 1.5 2c.8 0 1.5-.5 2-1"/>
+<path d="M14.5 9.5c2.5-.5 4.5 0 5 1.5c.3 1-.5 2-1.5 2c-.8 0-1.5-.5-2-1"/>
+<!-- Tail -->
+<path d="M10 17l-1.5 2.5"/>
+<path d="M12 17v3"/>
+<path d="M14 17l1.5 2.5"/>
+</svg>
+</div>
+<p>V1 — Classic + sensor dots</p>
+<div class="row">
+<div class="box"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 10c-2.5 0-4 1.5-4 3.5c0 2 1.5 3.5 4 3.5s4-1.5 4-3.5c0-2-1.5-3.5-4-3.5z"/><path d="M10 12.5h4"/><path d="M10 14h4"/><ellipse cx="12" cy="8.5" rx="2.5" ry="2"/><path d="M10 7l-2.5-4"/><circle cx="7.5" cy="3" r="0.8" fill="white" stroke="none"/><path d="M14 7l2.5-4"/><circle cx="16.5" cy="3" r="0.8" fill="white" stroke="none"/><path d="M9.5 9.5C7 9 5 9.5 4.5 11c-.3 1 .5 2 1.5 2c.8 0 1.5-.5 2-1"/><path d="M14.5 9.5c2.5-.5 4.5 0 5 1.5c.3 1-.5 2-1.5 2c-.8 0-1.5-.5-2-1"/><path d="M10 17l-1.5 2.5"/><path d="M12 17v3"/><path d="M14 17l1.5 2.5"/></svg></div>
+<span>openclaw.at0mic</span>
+</div>
+</div>
+
+<div class="option">
+<div class="box">
+<!-- V2: Bolder, more geometric, circuit-style antennae -->
+<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<!-- Body -->
+<path d="M8.5 11c0-1 1.5-2 3.5-2s3.5 1 3.5 2v4c0 1.5-1.5 3-3.5 3s-3.5-1.5-3.5-3v-4z"/>
+<!-- Body lines -->
+<path d="M9 12.5h6"/>
+<path d="M9 14.5h6"/>
+<!-- Head -->
+<rect x="9.5" y="6" width="5" height="3.5" rx="1.5"/>
+<!-- Eyes (LED style) -->
+<circle cx="11" cy="7.8" r="0.5" fill="white" stroke="none"/>
+<circle cx="13" cy="7.8" r="0.5" fill="white" stroke="none"/>
+<!-- Robot antennae: right-angle bends -->
+<path d="M10.5 6V4h-2V2.5"/>
+<circle cx="8.5" cy="2.5" r="0.7" fill="white" stroke="none"/>
+<path d="M13.5 6V4h2V2.5"/>
+<circle cx="15.5" cy="2.5" r="0.7" fill="white" stroke="none"/>
+<!-- Claws -->
+<path d="M9 10C7 9.5 5.5 10 5 11.5c-.3 1 .3 1.8 1.2 1.8.7 0 1.3-.5 1.8-1.3"/>
+<path d="M15 10c2-.5 3.5 0 4 1.5c.3 1-.3 1.8-1.2 1.8-.7 0-1.3-.5-1.8-1.3"/>
+<!-- Tail -->
+<path d="M10.5 18l-1 2"/>
+<path d="M12 18v2.5"/>
+<path d="M13.5 18l1 2"/>
+</svg>
+</div>
+<p>V2 — Geometric + circuit antennae</p>
+<div class="row">
+<div class="box"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 11c0-1 1.5-2 3.5-2s3.5 1 3.5 2v4c0 1.5-1.5 3-3.5 3s-3.5-1.5-3.5-3v-4z"/><path d="M9 12.5h6"/><path d="M9 14.5h6"/><rect x="9.5" y="6" width="5" height="3.5" rx="1.5"/><circle cx="11" cy="7.8" r="0.5" fill="white" stroke="none"/><circle cx="13" cy="7.8" r="0.5" fill="white" stroke="none"/><path d="M10.5 6V4h-2V2.5"/><circle cx="8.5" cy="2.5" r="0.7" fill="white" stroke="none"/><path d="M13.5 6V4h2V2.5"/><circle cx="15.5" cy="2.5" r="0.7" fill="white" stroke="none"/><path d="M9 10C7 9.5 5.5 10 5 11.5c-.3 1 .3 1.8 1.2 1.8.7 0 1.3-.5 1.8-1.3"/><path d="M15 10c2-.5 3.5 0 4 1.5c.3 1-.3 1.8-1.2 1.8-.7 0-1.3-.5-1.8-1.3"/><path d="M10.5 18l-1 2"/><path d="M12 18v2.5"/><path d="M13.5 18l1 2"/></svg></div>
+<span>openclaw.at0mic</span>
+</div>
+</div>
+
+<div class="option">
+<div class="box">
+<!-- V3: Minimalist, strong silhouette, wifi-style antennae -->
+<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<!-- Body -->
+<path d="M9 11c0-.8 1.3-1.8 3-1.8s3 1 3 1.8v5c0 1.5-1.3 2.8-3 2.8s-3-1.3-3-2.8v-5z"/>
+<path d="M9.5 13h5"/>
+<path d="M9.5 15h5"/>
+<!-- Head -->
+<circle cx="12" cy="7.5" r="2.2"/>
+<!-- Eyes -->
+<circle cx="11" cy="7.5" r="0.4" fill="white" stroke="none"/>
+<circle cx="13" cy="7.5" r="0.4" fill="white" stroke="none"/>
+<!-- Antennae with signal arcs -->
+<path d="M10 5.5L8 3"/>
+<circle cx="8" cy="3" r="0.6" fill="white" stroke="none"/>
+<path d="M6.5 4a3 3 0 0 1 2.2-2.2" opacity="0.5"/>
+<path d="M14 5.5l2-2.5"/>
+<circle cx="16" cy="3" r="0.6" fill="white" stroke="none"/>
+<path d="M17.5 4a3 3 0 0 0-2.2-2.2" opacity="0.5"/>
+<!-- Claws -->
+<path d="M9.5 9.5C7.5 9 6 9.5 5.5 11c-.3.8.2 1.5 1 1.5s1.5-.7 2-1.5"/>
+<path d="M14.5 9.5c2-.5 3.5 0 4 1.5c.3.8-.2 1.5-1 1.5s-1.5-.7-2-1.5"/>
+<!-- Tail -->
+<path d="M10.5 18.5l-1.5 2"/>
+<path d="M12 18.5v2.5"/>
+<path d="M13.5 18.5l1.5 2"/>
+</svg>
+</div>
+<p>V3 — Minimal + signal arcs</p>
+<div class="row">
+<div class="box"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11c0-.8 1.3-1.8 3-1.8s3 1 3 1.8v5c0 1.5-1.3 2.8-3 2.8s-3-1.3-3-2.8v-5z"/><path d="M9.5 13h5"/><path d="M9.5 15h5"/><circle cx="12" cy="7.5" r="2.2"/><circle cx="11" cy="7.5" r="0.4" fill="white" stroke="none"/><circle cx="13" cy="7.5" r="0.4" fill="white" stroke="none"/><path d="M10 5.5L8 3"/><circle cx="8" cy="3" r="0.6" fill="white" stroke="none"/><path d="M6.5 4a3 3 0 0 1 2.2-2.2" opacity="0.5"/><path d="M14 5.5l2-2.5"/><circle cx="16" cy="3" r="0.6" fill="white" stroke="none"/><path d="M17.5 4a3 3 0 0 0-2.2-2.2" opacity="0.5"/><path d="M9.5 9.5C7.5 9 6 9.5 5.5 11c-.3.8.2 1.5 1 1.5s1.5-.7 2-1.5"/><path d="M14.5 9.5c2-.5 3.5 0 4 1.5c.3.8-.2 1.5-1 1.5s-1.5-.7-2-1.5"/><path d="M10.5 18.5l-1.5 2"/><path d="M12 18.5v2.5"/><path d="M13.5 18.5l1.5 2"/></svg></div>
+<span>openclaw.at0mic</span>
+</div>
+</div>
+
+</body>
+</html>
