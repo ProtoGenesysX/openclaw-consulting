@@ -1,4 +1,6 @@
-const canvas = document.getElementById('particles-canvas');
+// Skip particles entirely on mobile/tablet (< 768px)
+if (window.innerWidth >= 768) {
+    const canvas = document.getElementById('particles-canvas');
     const ctx = canvas.getContext('2d');
     let particles = [];
     const particleCount = 60;
@@ -36,15 +38,12 @@ const canvas = document.getElementById('particles-canvas');
         }
 
         update() {
-            // Movement logic
             this.x += this.velocityX;
             this.y += this.velocityY;
 
-            // Screen wrap around or bounce
             if (this.x > canvas.width || this.x < 0) this.velocityX = -this.velocityX;
             if (this.y > canvas.height || this.y < 0) this.velocityY = -this.velocityY;
 
-            // Mouse interactivity
             let dx = mouse.x - this.x;
             let dy = mouse.y - this.y;
             let distance = Math.sqrt(dx * dx + dy * dy);
@@ -58,9 +57,6 @@ const canvas = document.getElementById('particles-canvas');
             if (distance < mouse.radius) {
                 this.x -= directionX;
                 this.y -= directionY;
-            } else {
-                // Gentle pull back to "home" path if not near mouse
-                // but we let them drift naturally for more joy
             }
             this.draw();
         }
@@ -76,7 +72,7 @@ const canvas = document.getElementById('particles-canvas');
             let y = Math.random() * canvas.height;
             let velocityX = (Math.random() - 0.5) * 0.5;
             let velocityY = (Math.random() - 0.5) * 0.5;
-            let color = 'rgba(255, 77, 77, 0.4)'; // Primary color with alpha
+            let color = 'rgba(255, 77, 77, 0.4)';
             particles.push(new Particle(x, y, size, color, velocityX, velocityY));
         }
     }
@@ -87,7 +83,6 @@ const canvas = document.getElementById('particles-canvas');
             particles[i].update();
         }
         
-        // Connect particles with lines if close
         for (let a = 0; a < particles.length; a++) {
             for (let b = a; b < particles.length; b++) {
                 let dx = particles[a].x - particles[b].x;
@@ -107,8 +102,8 @@ const canvas = document.getElementById('particles-canvas');
         requestAnimationFrame(animate);
     }
 
-    // Respect reduced-motion preference
     if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
         init();
         animate();
     }
+}

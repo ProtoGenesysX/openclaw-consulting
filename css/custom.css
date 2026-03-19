@@ -69,3 +69,27 @@
             z-index: 1;
             pointer-events: none;
         }
+
+        /* Mobile: disable heavy effects for smooth scrolling */
+        @media (max-width: 767px) {
+            #particles-canvas {
+                display: none;
+            }
+            .orb {
+                display: none;
+            }
+            .glass {
+                backdrop-filter: none;
+                -webkit-backdrop-filter: none;
+            }
+            .animate-float,
+            .animate-pulse-slow {
+                animation: none;
+            }
+            .card-hover:hover {
+                transform: none;
+            }
+            .starfield {
+                opacity: 0.08;
+            }
+        }
