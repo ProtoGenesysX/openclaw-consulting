@@ -96,16 +96,36 @@
             .starfield {
                 opacity: 0.12;
             }
-            /* Mobile background: generated constellation image */
+            /* Mobile parallax: nebula (slow) + stars (faster) */
+            .animated-bg {
+                perspective: 8px;
+                perspective-origin: center top;
+                overflow-y: auto;
+                overflow-x: hidden;
+            }
             .animated-bg::before {
                 content: '';
                 position: fixed;
-                inset: 0;
+                inset: -20%;
                 z-index: 1;
+                pointer-events: none;
+                background-image: url('/img/mobile-bg-nebula.png');
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                opacity: 0.35;
+                transform: translateZ(-4px) scale(1.5);
+            }
+            .animated-bg::after {
+                content: '';
+                position: fixed;
+                inset: 0;
+                z-index: 2;
                 pointer-events: none;
                 background-image: url('/img/mobile-bg-v1.png');
                 background-size: cover;
                 background-position: center;
                 background-repeat: no-repeat;
                 opacity: 0.5;
+                transform: translateZ(-1px) scale(1.125);
             }
