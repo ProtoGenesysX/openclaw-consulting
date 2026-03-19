@@ -1,3 +1,29 @@
+// Mobile: IntersectionObserver drives background depth transitions
+if (window.matchMedia('(max-width: 767px)').matches) {
+    const bg = document.querySelector('.animated-bg');
+    if (bg) {
+        const sections = document.querySelectorAll('section, footer');
+        const depthMap = new Map();
+        sections.forEach((section, i) => {
+            const depth = Math.min(Math.floor(i / (sections.length / 5)) + 1, 5);
+            depthMap.set(section, depth);
+        });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const depth = depthMap.get(entry.target) || 1;
+                    bg.className = bg.className.replace(/bg-depth-\d/g, '').trim();
+                    bg.classList.add('bg-depth-' + depth);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        sections.forEach(section => observer.observe(section));
+        bg.classList.add('bg-depth-1');
+    }
+}
+
 // Desktop: full particle animation
 if (!window.matchMedia('(max-width: 767px)').matches) {
     const canvas = document.getElementById('particles-canvas');
