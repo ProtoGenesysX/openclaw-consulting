@@ -70,7 +70,9 @@
             pointer-events: none;
         }
 
-        /* Mobile: disable heavy effects for smooth scrolling */
+        /* Mobile: disable GPU-heavy effects (particles, blur, backdrop-filter, 
+           animations) to fix scroll jank on mobile browsers. The orb blur(100px) 
+           and backdrop-filter on glass elements are the main culprits. */
         @media (max-width: 767px) {
             #particles-canvas {
                 display: none;

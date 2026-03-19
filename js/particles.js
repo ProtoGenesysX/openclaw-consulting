@@ -1,5 +1,5 @@
-// Skip particles entirely on mobile/tablet (< 768px)
-if (window.innerWidth >= 768) {
+// Skip particles on mobile/tablet for scroll performance
+if (!window.matchMedia('(max-width: 767px)').matches) {
     const canvas = document.getElementById('particles-canvas');
     const ctx = canvas.getContext('2d');
     let particles = [];
@@ -54,6 +54,7 @@ if (window.innerWidth >= 768) {
             let directionX = forceDirectionX * force * this.density;
             let directionY = forceDirectionY * force * this.density;
 
+            // Repel particle away from cursor
             if (distance < mouse.radius) {
                 this.x -= directionX;
                 this.y -= directionY;
