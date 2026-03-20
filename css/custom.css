@@ -96,37 +96,36 @@
             .starfield {
                 opacity: 0.12;
             }
-            /* Mobile: tiled background with intersection-observer-driven shifts */
+            /* Mobile: two-layer drifting constellation background */
+            @keyframes drift-nebula {
+                0% { background-position: 0px 0px; }
+                100% { background-position: -300px -500px; }
+            }
+            @keyframes drift-stars {
+                0% { background-position: 0px 0px; }
+                100% { background-position: 200px 400px; }
+            }
             .animated-bg::before {
                 content: '';
                 position: fixed;
                 inset: 0;
                 z-index: 1;
                 pointer-events: none;
-                background-image: url('/img/mobile-bg-v1.png');
-                background-size: 400px 700px;
-                background-position: 0px 0px;
+                background-image: url('/img/layer-nebula.png');
+                background-size: 500px auto;
                 background-repeat: repeat;
-                opacity: 0.4;
-                transition: background-position 2s ease-out, opacity 1.5s ease-out;
+                opacity: 0.25;
+                animation: drift-nebula 60s linear infinite;
             }
-            .animated-bg.bg-depth-1::before {
-                background-position: 0px 0px;
-                opacity: 0.4;
-            }
-            .animated-bg.bg-depth-2::before {
-                background-position: -30px -50px;
-                opacity: 0.35;
-            }
-            .animated-bg.bg-depth-3::before {
-                background-position: -60px -100px;
-                opacity: 0.3;
-            }
-            .animated-bg.bg-depth-4::before {
-                background-position: -90px -150px;
-                opacity: 0.35;
-            }
-            .animated-bg.bg-depth-5::before {
-                background-position: -120px -200px;
-                opacity: 0.4;
+            .animated-bg::after {
+                content: '';
+                position: fixed;
+                inset: 0;
+                z-index: 2;
+                pointer-events: none;
+                background-image: url('/img/layer-stars-transparent.png');
+                background-size: 400px auto;
+                background-repeat: repeat;
+                opacity: 0.5;
+                animation: drift-stars 45s linear infinite;
             }
