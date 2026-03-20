@@ -1,19 +1,21 @@
-// Mobile: stars layer reacts to scroll position (lightweight, passive)
+// Mobile: IntersectionObserver shifts stars layer as sections enter view
 if (window.matchMedia('(max-width: 767px)').matches) {
     const root = document.documentElement;
-    let ticking = false;
-    window.addEventListener('scroll', function() {
-        if (!ticking) {
-            requestAnimationFrame(function() {
-                const y = window.scrollY;
-                // Stars shift based on scroll, creating parallax feel
-                root.style.setProperty('--star-x', (y * 0.08) + 'px');
-                root.style.setProperty('--star-y', (y * -0.15) + 'px');
-                ticking = false;
-            });
-            ticking = true;
-        }
-    }, { passive: true });
+    const sections = document.querySelectorAll('section, footer');
+    const total = sections.length;
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const idx = Array.from(sections).indexOf(entry.target);
+                const progress = idx / (total - 1);
+                root.style.setProperty('--star-x', (progress * 80) + 'px');
+                root.style.setProperty('--star-y', (progress * -150) + 'px');
+            }
+        });
+    }, { threshold: 0.2 });
+
+    sections.forEach(s => observer.observe(s));
 }
 
 // Desktop: full particle animation
