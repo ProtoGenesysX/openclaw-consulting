@@ -70,15 +70,17 @@
             pointer-events: none;
         }
 
-        /* Mobile: disable GPU-heavy effects (particles, blur, backdrop-filter, 
-           animations) to fix scroll jank on mobile browsers. The orb blur(100px) 
-           and backdrop-filter on glass elements are the main culprits. */
+        /* Mobile: replace GPU-heavy live effects with static CSS equivalents
+           for smooth scrolling while maintaining visual depth. */
         @media (max-width: 767px) {
             #particles-canvas {
                 display: none;
             }
             .orb {
-                display: none;
+                /* Replace blur(100px) with a simpler, static glow */
+                filter: none;
+                opacity: 0.08;
+                background: radial-gradient(circle, var(--orb-color, rgba(255,77,77,0.3)) 0%, transparent 70%);
             }
             .glass {
                 backdrop-filter: none;
@@ -92,6 +94,107 @@
                 transform: none;
             }
             .starfield {
-                opacity: 0.08;
+                opacity: 0.12;
+            }
+            /* Mobile: nebula auto-drifts, stars react to scroll, dark overlay for readability */
+            @keyframes drift-nebula {
+                0% { background-position: 0px 0px; }
+                100% { background-position: -500px -888px; }
+            }
+            .animated-bg::before {
+                content: '';
+                position: fixed;
+                inset: 0;
+                z-index: 1;
+                pointer-events: none;
+                background-image: url('/img/layer-nebula.png');
+                background-size: 500px 888px;
+                background-repeat: repeat;
+                opacity: 0.25;
+                animation: drift-nebula 90s linear infinite;
+            }
+            .animated-bg::after {
+                content: '';
+                position: fixed;
+                inset: 0;
+                z-index: 2;
+                pointer-events: none;
+                background-image: url('/img/layer-stars-transparent.png');
+                background-size: 400px 711px;
+                background-repeat: repeat;
+                opacity: 0.45;
+                transition: background-position 1.2s cubic-bezier(0.25, 0.1, 0.25, 1);
+                background-position: var(--star-x, 0px) var(--star-y, 0px);
+            }
+            /* Dark overlay between background layers and content for readability */
+            .animated-bg > *:not(canvas):not(.starfield) {
+                position: relative;
+                z-index: 5;
+            }
+            .animated-bg > .starfield {
+                display: none;
+            }
+            .animated-bg > canvas {
+                display: none;
+            }
+            /* Dark scrim over background for text readability */
+            body::after {
+                content: '';
+                position: fixed;
+                inset: 0;
+                z-index: 3;
+                pointer-events: none;
+                background: rgba(5, 8, 16, 0.2);
+            }
+
+        @media (max-width: 767px) {
+            /* 1. Fixed nav on mobile (sticky breaks inside overflow parents) */
+            #main-nav.nav-fixed {
+                position: fixed !important;
+                top: 0 !important;
+                left: 0 !important;
+                right: 0 !important;
+                z-index: 999 !important;
+                background: rgba(5, 8, 16, 0.85) !important;
+                backdrop-filter: blur(16px) !important;
+                -webkit-backdrop-filter: blur(16px) !important;
+                padding: 0.5rem 1.5rem !important;
+                max-width: 100% !important;
+                border-bottom: 0.5px solid rgba(255, 77, 77, 0.3);
+            }
+            /* How It Works: bright step numbers */
+            #how-it-works .text-8xl.font-black {
+                opacity: 0.45 !important;
+                color: #ff4d4d !important;
+            }
+            #how-it-works .text-8xl.font-black:hover,
+            .group:hover .text-8xl.font-black {
+                opacity: 0.6 !important;
+            }
+            /* How It Works: lighter background */
+            #how-it-works > .absolute:first-child {
+                background: rgba(15, 23, 42, 0.2) !important;
+            }
+            /* 4. Section dividers: centered pinline between ALL sections */
+            section,
+            footer {
+                position: relative;
+            }
+            section::after {
+                content: '';
+                position: absolute;
+                bottom: -0.5px;
+                left: 25%;
+                width: 50%;
+                border-top: 0.5px solid #ff4d4d;
+                z-index: 10;
+            }
+            section {
+                padding-top: 4rem !important;
+                padding-bottom: 4rem !important;
+            }
+            /* 5. Footer: 20% black */
+            footer.relative {
+                background: rgba(0, 0, 0, 0.2) !important;
             }
         }

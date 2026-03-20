@@ -1,4 +1,49 @@
-// Skip particles on mobile/tablet for scroll performance
+// Mobile: fixed nav on scroll with spacer to prevent content jump
+if (window.matchMedia('(max-width: 767px)').matches) {
+    const nav = document.getElementById('main-nav');
+    if (nav) {
+        const spacer = document.createElement('div');
+        spacer.style.display = 'none';
+        nav.parentNode.insertBefore(spacer, nav.nextSibling);
+        const navH = nav.offsetHeight;
+        const navTop = nav.offsetTop + navH;
+        let fixed = false;
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > navTop && !fixed) {
+                spacer.style.display = 'block';
+                spacer.style.height = navH + 'px';
+                nav.classList.add('nav-fixed');
+                fixed = true;
+            } else if (window.scrollY <= navTop && fixed) {
+                nav.classList.remove('nav-fixed');
+                spacer.style.display = 'none';
+                fixed = false;
+            }
+        }, { passive: true });
+    }
+}
+
+// Mobile: IntersectionObserver shifts stars layer as sections enter view
+if (window.matchMedia('(max-width: 767px)').matches) {
+    const root = document.documentElement;
+    const sections = document.querySelectorAll('section, footer');
+    const total = sections.length;
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const idx = Array.from(sections).indexOf(entry.target);
+                const progress = idx / (total - 1);
+                root.style.setProperty('--star-x', (progress * 80) + 'px');
+                root.style.setProperty('--star-y', (progress * -150) + 'px');
+            }
+        });
+    }, { threshold: 0.2 });
+
+    sections.forEach(s => observer.observe(s));
+}
+
+// Desktop: full particle animation
 if (!window.matchMedia('(max-width: 767px)').matches) {
     const canvas = document.getElementById('particles-canvas');
     const ctx = canvas.getContext('2d');
