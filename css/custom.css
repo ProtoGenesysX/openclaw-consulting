@@ -148,34 +148,48 @@
             }
 
         @media (max-width: 767px) {
-            /* 1. Sticky nav header on scroll */
-            nav.relative {
-                position: sticky;
-                top: 0;
-                z-index: 50;
-                background: rgba(5, 8, 16, 0.85);
-                backdrop-filter: blur(10px);
-                -webkit-backdrop-filter: blur(10px);
-                padding-top: 1rem;
-                padding-bottom: 1rem;
+            /* 1. Sticky nav on mobile */
+            nav {
+                position: -webkit-sticky !important;
+                position: sticky !important;
+                top: 0 !important;
+                z-index: 50 !important;
+                background: rgba(5, 8, 16, 0.7) !important;
+                backdrop-filter: blur(16px) !important;
+                -webkit-backdrop-filter: blur(16px) !important;
+                padding-top: 0.75rem !important;
+                padding-bottom: 0.75rem !important;
+                margin: 0 !important;
+                max-width: 100% !important;
             }
-            /* How It Works: brighter step numbers */
+            /* How It Works: bright step numbers */
             #how-it-works .text-8xl.font-black {
-                opacity: 0.25 !important;
+                opacity: 0.45 !important;
                 color: #ff4d4d !important;
             }
             #how-it-works .text-8xl.font-black:hover,
             .group:hover .text-8xl.font-black {
-                opacity: 0.4 !important;
+                opacity: 0.6 !important;
             }
             /* How It Works: lighter background */
             #how-it-works > .absolute:first-child {
                 background: rgba(15, 23, 42, 0.2) !important;
             }
-            /* 4. Section dividers: pinline in primary color */
+            /* 4. Section dividers: centered pinline */
+            section + section::before,
+            section + footer::before {
+                content: '';
+                display: block;
+                width: 50%;
+                height: 0;
+                border-top: 0.5px solid #ff4d4d;
+                margin: 0 auto;
+                position: relative;
+                top: 0;
+            }
             section + section,
             section + footer {
-                border-top: 1px solid #ff4d4d;
+                border-top: none;
             }
             section {
                 padding-top: 4rem !important;
