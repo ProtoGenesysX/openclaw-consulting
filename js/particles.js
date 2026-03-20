@@ -1,3 +1,21 @@
+// Mobile: stars layer reacts to scroll position (lightweight, passive)
+if (window.matchMedia('(max-width: 767px)').matches) {
+    const root = document.documentElement;
+    let ticking = false;
+    window.addEventListener('scroll', function() {
+        if (!ticking) {
+            requestAnimationFrame(function() {
+                const y = window.scrollY;
+                // Stars shift based on scroll, creating parallax feel
+                root.style.setProperty('--star-x', (y * 0.08) + 'px');
+                root.style.setProperty('--star-y', (y * -0.15) + 'px');
+                ticking = false;
+            });
+            ticking = true;
+        }
+    }, { passive: true });
+}
+
 // Desktop: full particle animation
 if (!window.matchMedia('(max-width: 767px)').matches) {
     const canvas = document.getElementById('particles-canvas');
