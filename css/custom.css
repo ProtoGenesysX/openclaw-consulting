@@ -146,3 +146,28 @@
                 pointer-events: none;
                 background: rgba(5, 8, 16, 0.2);
             }
+
+        @media (max-width: 767px) {
+            /* How It Works: brighter step numbers */
+            #how-it-works .text-8xl.font-black {
+                opacity: 0.25 !important;
+                color: #ff4d4d !important;
+            }
+            #how-it-works .text-8xl.font-black:hover,
+            .group:hover .text-8xl.font-black {
+                opacity: 0.4 !important;
+            }
+            /* How It Works: lighter background */
+            #how-it-works > .absolute:first-child {
+                background: rgba(15, 23, 42, 0.2) !important;
+            }
+            /* 4. Reduce section spacing on mobile */
+            section {
+                padding-top: 4rem !important;
+                padding-bottom: 4rem !important;
+            }
+            /* 5. Footer: lighter background */
+            footer.relative {
+                background: rgba(0, 0, 0, 0.4) !important;
+            }
+        }
