@@ -1,15 +1,22 @@
-// Mobile: fixed nav on scroll
+// Mobile: fixed nav on scroll with spacer to prevent content jump
 if (window.matchMedia('(max-width: 767px)').matches) {
     const nav = document.getElementById('main-nav');
     if (nav) {
-        const navTop = nav.offsetTop + nav.offsetHeight;
+        const spacer = document.createElement('div');
+        spacer.style.display = 'none';
+        nav.parentNode.insertBefore(spacer, nav.nextSibling);
+        const navH = nav.offsetHeight;
+        const navTop = nav.offsetTop + navH;
         let fixed = false;
         window.addEventListener('scroll', function() {
             if (window.scrollY > navTop && !fixed) {
+                spacer.style.display = 'block';
+                spacer.style.height = navH + 'px';
                 nav.classList.add('nav-fixed');
                 fixed = true;
             } else if (window.scrollY <= navTop && fixed) {
                 nav.classList.remove('nav-fixed');
+                spacer.style.display = 'none';
                 fixed = false;
             }
         }, { passive: true });
