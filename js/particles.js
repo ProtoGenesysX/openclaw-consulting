@@ -1,3 +1,21 @@
+// Mobile: fixed nav on scroll
+if (window.matchMedia('(max-width: 767px)').matches) {
+    const nav = document.getElementById('main-nav');
+    if (nav) {
+        const navTop = nav.offsetTop + nav.offsetHeight;
+        let fixed = false;
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > navTop && !fixed) {
+                nav.classList.add('nav-fixed');
+                fixed = true;
+            } else if (window.scrollY <= navTop && fixed) {
+                nav.classList.remove('nav-fixed');
+                fixed = false;
+            }
+        }, { passive: true });
+    }
+}
+
 // Mobile: IntersectionObserver shifts stars layer as sections enter view
 if (window.matchMedia('(max-width: 767px)').matches) {
     const root = document.documentElement;

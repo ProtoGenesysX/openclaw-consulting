@@ -148,19 +148,19 @@
             }
 
         @media (max-width: 767px) {
-            /* 1. Sticky nav on mobile */
-            nav {
-                position: -webkit-sticky !important;
-                position: sticky !important;
+            /* 1. Fixed nav on mobile (sticky breaks inside overflow parents) */
+            #main-nav.nav-fixed {
+                position: fixed !important;
                 top: 0 !important;
-                z-index: 50 !important;
-                background: rgba(5, 8, 16, 0.7) !important;
+                left: 0 !important;
+                right: 0 !important;
+                z-index: 999 !important;
+                background: rgba(5, 8, 16, 0.85) !important;
                 backdrop-filter: blur(16px) !important;
                 -webkit-backdrop-filter: blur(16px) !important;
-                padding-top: 0.75rem !important;
-                padding-bottom: 0.75rem !important;
-                margin: 0 !important;
+                padding: 0.5rem 1.5rem !important;
                 max-width: 100% !important;
+                border-bottom: 0.5px solid rgba(255, 77, 77, 0.3);
             }
             /* How It Works: bright step numbers */
             #how-it-works .text-8xl.font-black {
@@ -176,20 +176,19 @@
                 background: rgba(15, 23, 42, 0.2) !important;
             }
             /* 4. Section dividers: centered pinline */
+            section,
+            footer {
+                position: relative;
+            }
             section + section::before,
-            section + footer::before {
+            footer::before {
                 content: '';
                 display: block;
                 width: 50%;
                 height: 0;
                 border-top: 0.5px solid #ff4d4d;
                 margin: 0 auto;
-                position: relative;
-                top: 0;
-            }
-            section + section,
-            section + footer {
-                border-top: none;
+                margin-bottom: 2rem;
             }
             section {
                 padding-top: 4rem !important;
