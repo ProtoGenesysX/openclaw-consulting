@@ -31,7 +31,8 @@ document.addEventListener('DOMContentLoaded', function() {
             if (ENDPOINT) {
                 const res = await fetch(ENDPOINT, {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'text/plain' },
                     body: JSON.stringify(data)
                 });
                 if (!res.ok) throw new Error('Server error');
