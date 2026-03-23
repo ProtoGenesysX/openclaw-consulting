@@ -28,7 +28,7 @@
 <a class="hover:text-primary transition-colors" href="#pricing">Pricing</a>
 <a class="hover:text-primary transition-colors" href="#about">About</a>
 </div>
-<a class="bg-primary text-white px-6 py-3 rounded font-bold text-sm hover:scale-105 active:scale-95 transition-all shadow-[0_0_20px_rgba(255,77,77,0.3)] hidden md:inline-flex" href="mailto:openclaw@at0mic.com?subject=AI%20Agent%20Consultation%20Inquiry">Book a Consultation</a>
+<a class="bg-primary text-white px-6 py-3 rounded font-bold text-sm hover:scale-105 active:scale-95 transition-all shadow-[0_0_20px_rgba(255,77,77,0.3)] hidden md:inline-flex" href="#contact">Book a Consultation</a>
 <a class="bg-primary text-white px-3 py-1.5 rounded font-bold text-xs hover:scale-105 active:scale-95 transition-all shadow-[0_0_20px_rgba(255,77,77,0.3)] md:hidden" href="mailto:openclaw@at0mic.com?subject=AI%20Agent%20Consultation%20Inquiry">Enquire</a>
 </nav>
 <!-- Hero Section -->
@@ -55,7 +55,7 @@
 <p class="text-lg text-slate-custom leading-relaxed">Supercharge your life or business with AI that understands your context, manages your tasks, and integrates with your existing tools, apps and workflows.</p>
 </div>
 <div class="flex flex-col sm:flex-row gap-4 pt-4">
-<a class="bg-primary text-white px-8 py-4 rounded font-bold text-lg hover:shadow-[0_0_50px_rgba(255,77,77,0.5)] hover:scale-[1.02] active:scale-95 transition-all inline-flex items-center justify-center" href="mailto:openclaw@at0mic.com?subject=AI%20Agent%20Consultation%20Inquiry">
+<a class="bg-primary text-white px-8 py-4 rounded font-bold text-lg hover:shadow-[0_0_50px_rgba(255,77,77,0.5)] hover:scale-[1.02] active:scale-95 transition-all inline-flex items-center justify-center" href="#contact">
                         Book a Consultation
                     </a>
 <a class="glass px-8 py-4 rounded font-bold text-lg hover:bg-white/10 transition-all text-white border border-white/20 inline-flex items-center justify-center" href="#capabilities">
@@ -290,7 +290,7 @@
 <li class="flex items-center gap-3 text-slate-100"><span class="material-symbols-outlined text-primary text-sm">check_circle</span> AI opportunity assessment</li>
 <li class="flex items-center gap-3 text-slate-100"><span class="material-symbols-outlined text-primary text-sm">check_circle</span> Fee applies to Setup Package</li>
 </ul>
-<a class="w-full glass py-4 rounded font-bold hover:bg-white/10 transition-all text-white border-white/20 inline-flex items-center justify-center mt-auto" href="mailto:openclaw@at0mic.com?subject=Initial%20Consultation%20Request&body=Hi%2C%20I%27d%20like%20to%20book%20an%20initial%20consultation.">Book Now</a>
+<a class="w-full glass py-4 rounded font-bold hover:bg-white/10 transition-all text-white border-white/20 inline-flex items-center justify-center mt-auto" href="#contact" onclick="document.getElementById('interest').value='consultation'">Book Now</a>
 </div>
 <div class="glass p-10 rounded-3xl border-primary/20 relative overflow-hidden group card-hover transition-all flex flex-col">
 <div class="absolute top-0 right-0 bg-primary text-white px-4 py-1 text-xs font-bold uppercase tracking-widest rounded-bl-xl shadow-lg">Most Popular</div>
@@ -302,7 +302,7 @@
 <li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary text-sm">check_circle</span> Infrastructure Hosting Setup</li>
 <li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary text-sm">check_circle</span> 14-day Post-Launch Support</li>
 </ul>
-<a class="w-full bg-primary text-white py-4 rounded font-bold hover:brightness-110 hover:scale-[1.02] active:scale-95 transition-all shadow-lg shadow-primary/20 inline-flex items-center justify-center mt-auto" href="mailto:openclaw@at0mic.com?subject=Setup%20Package%20Inquiry&body=Hi%2C%20I%27m%20interested%20in%20the%20Setup%20Package.">Start Project</a>
+<a class="w-full bg-primary text-white py-4 rounded font-bold hover:brightness-110 hover:scale-[1.02] active:scale-95 transition-all shadow-lg shadow-primary/20 inline-flex items-center justify-center mt-auto" href="#contact" onclick="document.getElementById('interest').value='setup'">Start Project</a>
 </div>
 <div class="glass p-10 rounded-3xl border-white/10 card-hover transition-all relative overflow-hidden flex flex-col">
 <div class="absolute -right-4 -bottom-4 opacity-5 pointer-events-none">
@@ -316,7 +316,7 @@
 <li class="flex items-center gap-3 text-slate-100"><span class="material-symbols-outlined text-primary text-sm">check_circle</span> Strategic AI Consulting</li>
 <li class="flex items-center gap-3 text-slate-100"><span class="material-symbols-outlined text-primary text-sm">check_circle</span> Custom Training Sets</li>
 </ul>
-<a class="w-full glass py-4 rounded font-bold hover:bg-white/10 transition-all text-white border-white/20 inline-flex items-center justify-center mt-auto" href="mailto:openclaw@at0mic.com?subject=Custom%20Work%20Inquiry&body=Hi%2C%20I%27d%20like%20to%20discuss%20custom%20AI%20agent%20work.">Book Hourly</a>
+<a class="w-full glass py-4 rounded font-bold hover:bg-white/10 transition-all text-white border-white/20 inline-flex items-center justify-center mt-auto" href="#contact" onclick="document.getElementById('interest').value='custom'">Book Hourly</a>
 </div>
 </div>
 <!-- Cost Table -->
@@ -471,27 +471,72 @@
 </details>
 </div>
 </section>
-<!-- Footer / Contact -->
-<footer class="relative py-20 border-t border-white/10 bg-black/80 backdrop-blur-md overflow-hidden">
+<!-- Footer / Contact Form -->
+<footer id="contact" class="relative py-20 border-t border-white/10 bg-black/80 backdrop-blur-md overflow-hidden">
 <div class="absolute inset-0 bg-pattern-network opacity-10 pointer-events-none"></div>
 <div class="orb w-[400px] h-[400px] bg-primary/10 -bottom-20 left-1/2 -translate-x-1/2"></div>
-<div class="max-w-7xl mx-auto px-6 text-center space-y-12 relative z-10">
-<div class="space-y-4">
+<div class="max-w-4xl mx-auto px-6 relative z-10">
+<div class="text-center space-y-4 mb-12">
 <h2 class="text-4xl md:text-6xl font-black glow-text text-white">Ready to evolve your strategy<br/>with a team of AI Agents?</h2>
-<p class="text-xl text-slate-custom max-w-xl mx-auto leading-relaxed">Stop manually handling data and start managing your AI workforce.</p>
+<p class="text-xl text-slate-custom max-w-xl mx-auto leading-relaxed">Tell us about your needs. We will get back to you within 24 hours.</p>
 </div>
-<div class="flex flex-col md:flex-row justify-center items-center gap-8">
-<a class="flex items-center gap-3 text-2xl font-bold text-primary hover:scale-110 hover:text-white transition-all duration-300" href="mailto:openclaw@at0mic.com">
-<span class="material-symbols-outlined">mail</span>
-                    openclaw@at0mic.com
-                </a>
-
+<form id="contact-form" class="glass rounded-3xl p-8 md:p-12 border-white/10 space-y-6">
+<div class="grid md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label for="name" class="text-sm font-bold text-slate-custom uppercase tracking-wider">Name</label>
+<input type="text" id="name" name="name" required placeholder="Your name" class="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-white placeholder-slate-custom/50 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors"/>
 </div>
-<div class="pt-20 text-slate-custom/30 text-xs tracking-[0.2em] uppercase font-bold">
-                © 2026 OpenClaw Orchestration. All rights reserved.
-            </div>
+<div class="space-y-2">
+<label for="email" class="text-sm font-bold text-slate-custom uppercase tracking-wider">Email</label>
+<input type="email" id="email" name="email" required placeholder="your@email.com" class="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-white placeholder-slate-custom/50 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors"/>
+</div>
+</div>
+<div class="grid md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label for="interest" class="text-sm font-bold text-slate-custom uppercase tracking-wider">I'm interested in</label>
+<select id="interest" name="interest" class="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-white focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors appearance-none">
+<option value="general" class="bg-background-dark">General Inquiry</option>
+<option value="consultation" class="bg-background-dark">Initial Consultation ($100)</option>
+<option value="setup" class="bg-background-dark">Setup Package ($1,000)</option>
+<option value="custom" class="bg-background-dark">Custom Work ($100/hr)</option>
+</select>
+</div>
+<div class="space-y-2">
+<label for="referral" class="text-sm font-bold text-slate-custom uppercase tracking-wider">How did you hear about us?</label>
+<select id="referral" name="referral" class="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-white focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors appearance-none">
+<option value="" class="bg-background-dark">Select one</option>
+<option value="search" class="bg-background-dark">Search engine</option>
+<option value="social" class="bg-background-dark">Social media</option>
+<option value="referral" class="bg-background-dark">Friend or colleague</option>
+<option value="openclaw" class="bg-background-dark">OpenClaw community</option>
+<option value="other" class="bg-background-dark">Other</option>
+</select>
+</div>
+</div>
+<div class="space-y-2">
+<label for="message" class="text-sm font-bold text-slate-custom uppercase tracking-wider">Message</label>
+<textarea id="message" name="message" rows="4" required placeholder="Tell us about your workflow, your tools, and what you'd like your AI to help with..." class="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-white placeholder-slate-custom/50 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors resize-none"></textarea>
+</div>
+<!-- Honeypot -->
+<div style="position:absolute;left:-9999px" aria-hidden="true">
+<input type="text" name="website" tabindex="-1" autocomplete="off"/>
+</div>
+<div class="flex flex-col sm:flex-row items-center gap-4 pt-2">
+<button type="submit" id="submit-btn" class="bg-primary text-white px-10 py-4 rounded font-bold text-lg hover:shadow-[0_0_50px_rgba(255,77,77,0.5)] hover:scale-[1.02] active:scale-95 transition-all w-full sm:w-auto">
+Send Message
+</button>
+<span id="form-status" class="text-sm text-slate-custom hidden"></span>
+</div>
+</form>
+<div class="text-center mt-8">
+<p class="text-slate-custom/50 text-sm">Or email us directly at <a href="mailto:openclaw@at0mic.com" class="text-primary hover:text-white transition-colors">openclaw@at0mic.com</a></p>
+</div>
+<div class="pt-16 text-center text-slate-custom/30 text-xs tracking-[0.2em] uppercase font-bold">
+© 2026 OpenClaw Orchestration. All rights reserved.
+</div>
 </div>
 </footer>
 </div>
 <script src="js/particles.js"></script>
+<script src="js/form.js"></script>
 </body></html>
