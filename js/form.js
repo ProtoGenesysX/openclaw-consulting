@@ -1,4 +1,3 @@
-// Contact form handler
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('contact-form');
     const btn = document.getElementById('submit-btn');
@@ -9,14 +8,13 @@ document.addEventListener('DOMContentLoaded', function() {
     form.addEventListener('submit', async function(e) {
         e.preventDefault();
 
-        // Honeypot check
         if (form.querySelector('input[name="website"]').value) return;
 
         const data = {
             name: form.name.value.trim(),
             email: form.email.value.trim(),
             interest: form.interest.value,
-            referral: form.referral.value,
+            referral: form.referral.options[form.referral.selectedIndex].text,
             message: form.message.value.trim(),
             timestamp: new Date().toISOString()
         };
@@ -26,19 +24,17 @@ document.addEventListener('DOMContentLoaded', function() {
         status.classList.add('hidden');
 
         try {
-            // TODO: Replace with Apps Script endpoint
             const ENDPOINT = form.dataset.endpoint;
             if (ENDPOINT) {
-                const res = await fetch(ENDPOINT, {
+                await fetch(ENDPOINT, {
                     method: 'POST',
                     mode: 'no-cors',
                     headers: { 'Content-Type': 'text/plain' },
                     body: JSON.stringify(data)
                 });
-                if (!res.ok) throw new Error('Server error');
+                // no-cors: can't read response, but if fetch didn't throw, it reached the server
             }
 
-            // Success state
             btn.textContent = 'Sent!';
             btn.classList.remove('bg-primary');
             btn.classList.add('bg-green-600');
@@ -52,6 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 btn.disabled = false;
                 btn.classList.remove('bg-green-600');
                 btn.classList.add('bg-primary');
+                status.classList.add('hidden');
             }, 5000);
 
         } catch (err) {
