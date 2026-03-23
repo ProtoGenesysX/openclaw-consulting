@@ -212,6 +212,37 @@
         padding-bottom: 4rem !important;
     }
 
+    /* Cost table: stack on mobile */
+    #pricing table {
+        display: block;
+    }
+    #pricing thead {
+        display: none;
+    }
+    #pricing tbody {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        padding: 16px;
+    }
+    #pricing tr {
+        display: flex;
+        flex-direction: column;
+        padding: 12px;
+        border: 1px solid rgba(255,255,255,0.05);
+        border-radius: 8px;
+        background: rgba(255,255,255,0.02);
+    }
+    #pricing td {
+        padding: 4px 0 !important;
+    }
+    #pricing td:first-child {
+        font-weight: bold;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+        padding-bottom: 8px !important;
+        margin-bottom: 4px;
+    }
+
     /* Footer */
     footer.relative {
         background: rgba(0, 0, 0, 0.2) !important;

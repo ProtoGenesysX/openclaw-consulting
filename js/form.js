@@ -1,3 +1,14 @@
+// Prefill form from CTA buttons
+function prefillForm(interest, message) {
+    setTimeout(function() {
+        var interestEl = document.getElementById('interest');
+        var messageEl = document.getElementById('message');
+        if (interestEl) interestEl.value = interest;
+        if (messageEl) messageEl.value = message;
+        var nameEl = document.getElementById('name'); if (nameEl) nameEl.focus();
+    }, 100);
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('contact-form');
     const btn = document.getElementById('submit-btn');
