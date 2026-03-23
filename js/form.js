@@ -4,7 +4,7 @@ function prefillForm(interest, message) {
         var interestEl = document.getElementById('interest');
         var messageEl = document.getElementById('message');
         if (interestEl) interestEl.value = interest;
-        if (messageEl && !messageEl.value) messageEl.value = message;
+        if (messageEl) messageEl.value = message;
         var nameEl = document.getElementById('name'); if (nameEl) nameEl.focus();
     }, 100);
 }
