@@ -28,7 +28,7 @@
 <a class="hover:text-primary transition-colors" href="#pricing">Pricing</a>
 <a class="hover:text-primary transition-colors" href="#about">About</a>
 </div>
-<a class="bg-primary text-white px-6 py-3 rounded font-bold text-sm hover:scale-105 active:scale-95 transition-all shadow-[0_0_20px_rgba(255,77,77,0.3)] hidden md:inline-flex" href="#contact">Book a Consultation</a>
+<a class="bg-primary text-white px-6 py-3 rounded font-bold text-sm hover:scale-105 active:scale-95 transition-all shadow-[0_0_20px_rgba(255,77,77,0.3)] hidden md:inline-flex" href="#contact" onclick="prefillForm('consultation','I\'d like to schedule a consultation to discuss how AI agents can help my workflow.')">Book a Consultation</a>
 <a class="bg-primary text-white px-3 py-1.5 rounded font-bold text-xs hover:scale-105 active:scale-95 transition-all shadow-[0_0_20px_rgba(255,77,77,0.3)] md:hidden" href="mailto:openclaw@at0mic.com?subject=AI%20Agent%20Consultation%20Inquiry">Enquire</a>
 </nav>
 <!-- Hero Section -->
@@ -55,7 +55,7 @@
 <p class="text-lg text-slate-custom leading-relaxed">Supercharge your life or business with AI that understands your context, manages your tasks, and integrates with your existing tools, apps and workflows.</p>
 </div>
 <div class="flex flex-col sm:flex-row gap-4 pt-4">
-<a class="bg-primary text-white px-8 py-4 rounded font-bold text-lg hover:shadow-[0_0_50px_rgba(255,77,77,0.5)] hover:scale-[1.02] active:scale-95 transition-all inline-flex items-center justify-center" href="#contact">
+<a class="bg-primary text-white px-8 py-4 rounded font-bold text-lg hover:shadow-[0_0_50px_rgba(255,77,77,0.5)] hover:scale-[1.02] active:scale-95 transition-all inline-flex items-center justify-center" href="#contact" onclick="prefillForm('consultation','I\'m interested in setting up my own AI agent system. I\'d like to discuss my workflow and explore what\'s possible.')">
                         Book a Consultation
                     </a>
 <a class="glass px-8 py-4 rounded font-bold text-lg hover:bg-white/10 transition-all text-white border border-white/20 inline-flex items-center justify-center" href="#capabilities">
@@ -290,7 +290,7 @@
 <li class="flex items-center gap-3 text-slate-100"><span class="material-symbols-outlined text-primary text-sm">check_circle</span> AI opportunity assessment</li>
 <li class="flex items-center gap-3 text-slate-100"><span class="material-symbols-outlined text-primary text-sm">check_circle</span> Fee applies to Setup Package</li>
 </ul>
-<a class="w-full glass py-4 rounded font-bold hover:bg-white/10 transition-all text-white border-white/20 inline-flex items-center justify-center mt-auto" href="#contact" onclick="document.getElementById('interest').value='consultation'">Book Now</a>
+<a class="w-full glass py-4 rounded font-bold hover:bg-white/10 transition-all text-white border-white/20 inline-flex items-center justify-center mt-auto" href="#contact" onclick="prefillForm('consultation','I\'d like to book an initial consultation to explore how AI agents can fit into my workflow.')">Book Now</a>
 </div>
 <div class="glass p-10 rounded-3xl border-primary/20 relative overflow-hidden group card-hover transition-all flex flex-col">
 <div class="absolute top-0 right-0 bg-primary text-white px-4 py-1 text-xs font-bold uppercase tracking-widest rounded-bl-xl shadow-lg">Most Popular</div>
@@ -302,7 +302,7 @@
 <li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary text-sm">check_circle</span> Infrastructure Hosting Setup</li>
 <li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary text-sm">check_circle</span> 14-day Post-Launch Support</li>
 </ul>
-<a class="w-full bg-primary text-white py-4 rounded font-bold hover:brightness-110 hover:scale-[1.02] active:scale-95 transition-all shadow-lg shadow-primary/20 inline-flex items-center justify-center mt-auto" href="#contact" onclick="document.getElementById('interest').value='setup'">Start Project</a>
+<a class="w-full bg-primary text-white py-4 rounded font-bold hover:brightness-110 hover:scale-[1.02] active:scale-95 transition-all shadow-lg shadow-primary/20 inline-flex items-center justify-center mt-auto" href="#contact" onclick="prefillForm('setup','I\'m ready to get started with the Setup Package. I\'d like to discuss my requirements and timeline.')">Start Project</a>
 </div>
 <div class="glass p-10 rounded-3xl border-white/10 card-hover transition-all relative overflow-hidden flex flex-col">
 <div class="absolute -right-4 -bottom-4 opacity-5 pointer-events-none">
@@ -316,7 +316,7 @@
 <li class="flex items-center gap-3 text-slate-100"><span class="material-symbols-outlined text-primary text-sm">check_circle</span> Strategic AI Consulting</li>
 <li class="flex items-center gap-3 text-slate-100"><span class="material-symbols-outlined text-primary text-sm">check_circle</span> Custom Training Sets</li>
 </ul>
-<a class="w-full glass py-4 rounded font-bold hover:bg-white/10 transition-all text-white border-white/20 inline-flex items-center justify-center mt-auto" href="#contact" onclick="document.getElementById('interest').value='custom'">Book Hourly</a>
+<a class="w-full glass py-4 rounded font-bold hover:bg-white/10 transition-all text-white border-white/20 inline-flex items-center justify-center mt-auto" href="#contact" onclick="prefillForm('custom','I have an existing setup and would like custom work done. Here\'s what I need help with:')">Book Hourly</a>
 </div>
 </div>
 <!-- Cost Table -->
