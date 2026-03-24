@@ -48,8 +48,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
             btn.textContent = 'Sent ✓';
             btn.disabled = true;
-            btn.classList.remove('bg-primary');
-            btn.classList.add('bg-green-600', 'opacity-80', 'cursor-not-allowed');
+            btn.classList.remove('bg-primary', 'hover:shadow-[0_0_50px_rgba(255,77,77,0.5)]', 'hover:scale-[1.02]', 'active:scale-95');
+            btn.classList.add('bg-green-600', 'text-green-100', 'cursor-not-allowed');
+            btn.style.pointerEvents = 'none';
             status.textContent = 'Thank you! We will be in touch within 24 hours.';
             status.classList.remove('hidden', 'text-red-400');
             status.classList.add('text-green-400');
