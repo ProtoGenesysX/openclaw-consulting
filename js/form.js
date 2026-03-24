@@ -46,21 +46,20 @@ document.addEventListener('DOMContentLoaded', function() {
                 // no-cors: can't read response, but if fetch didn't throw, it reached the server
             }
 
-            btn.textContent = 'Sent!';
+            btn.textContent = 'Sent ✓';
+            btn.disabled = true;
             btn.classList.remove('bg-primary');
-            btn.classList.add('bg-green-600');
+            btn.classList.add('bg-green-600', 'opacity-80', 'cursor-not-allowed');
             status.textContent = 'Thank you! We will be in touch within 24 hours.';
             status.classList.remove('hidden', 'text-red-400');
             status.classList.add('text-green-400');
             form.reset();
 
-            setTimeout(function() {
-                btn.textContent = 'Send Message';
-                btn.disabled = false;
-                btn.classList.remove('bg-green-600');
-                btn.classList.add('bg-primary');
-                status.classList.add('hidden');
-            }, 5000);
+            // Disable all form inputs to prevent re-submission
+            form.querySelectorAll('input, select, textarea').forEach(function(el) {
+                el.disabled = true;
+                el.classList.add('opacity-50');
+            });
 
         } catch (err) {
             btn.textContent = 'Send Message';
